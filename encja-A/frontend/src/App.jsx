@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from "react";
 import './App.css'
+import PlanetForm from "./components/PlanetForm";
+import PlanetList from "./components/PlanetList";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [planets, setPlanets] = useState([]);
+  const [editing, setEditing] = useState(null);
+
+  const addPlanet = (planet) => {
+    if (editing) {
+      setPlanets(planets.map(p => p.id === editing.id ? planet : p));
+      setEditing(null);
+    } else {
+      setPlanets([...planets, { ...planet, id: Date.now() }]);
+    }
+  };
+
+  const deletePlanet = (id) => setPlanets(planets.filter(p => p.id !== id));
+  const editPlanet = (planet) => setEditing(planet);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="MainDiv">
+      <h1>CRUD – Planety </h1>
+      <PlanetForm onSave={addPlanet} editing={editing} />
+      <PlanetList planets={planets} onEdit={editPlanet} onDelete={deletePlanet} />
+    </div>
+  );
 }
 
-export default App
+export default App;
+
