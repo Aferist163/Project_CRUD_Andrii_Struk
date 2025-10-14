@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PlanetForm from "./components/PlanetForm";
 import PlanetList from "./components/PlanetList";
-import './App.css'
+import './css/App.css'
 
 function App() {
   const [planets, setPlanets] = useState([]);

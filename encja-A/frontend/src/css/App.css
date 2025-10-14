@@ -8,7 +8,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-image: url('./img/Bg.png');
+  background-image: url('../img/Bg.png');
   
   background-size: cover;
   background-position: center;
