@@ -17,13 +17,13 @@ export default function PlanetList({ planets, onEdit, onDelete }) {
         {planets.map(p => (
           <tr key={p.id}>
             <td>{p.nazwa}</td>
-            <td>{p.system}</td>
+            <td>{p.system_planet}</td>
             <td>{p.klimat}</td>
             <td>{p.populacja}</td>
             <td>{p.typ_powierzchni}</td>
             <td className="Controlbtn">
-              <button onClick={() => onEdit(p)}>✏️</button>
-              <button onClick={() => onDelete(p.id)}>🗑️</button>
+              <button onClick={() => onEdit(p)}>🖊 Edit</button>
+              <button onClick={() => onDelete(p.id)}>🗑 Delite</button>
             </td>
           </tr>
         ))}
