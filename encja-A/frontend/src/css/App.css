@@ -24,12 +24,14 @@ body {
   
 h1{
   font-size: 96px;
+  z-index: 1;
 }
 
 form{
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
 }
 
 input{
@@ -72,8 +74,34 @@ table{
   width: 100%;
   background: rgb(24, 22, 24);
   border-color: antiquewhite;
+    z-index: 1;
 }
 
 tr, td, th{
   border-width: 3px;
+}
+
+.STAR{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+.ALIEN{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
+
+.ROCKET{
+  position: absolute;
+  bottom: 5%;
+  right: 30%;
+  z-index: 0;
+}
+
+.ALIEN2{
+  position: absolute;
+  bottom: 50%;
+  right: 55%;
 }

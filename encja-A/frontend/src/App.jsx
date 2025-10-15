@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import PlanetForm from "./components/PlanetForm";
 import PlanetList from "./components/PlanetList";
 import toast, { Toaster } from 'react-hot-toast';
+import ReactEmojis from "@souhaildev/reactemojis";
 
 
 import './css/App.css'
@@ -104,12 +105,16 @@ function App() {
   
   return (
     <>
-     <Toaster />
-     <div className="MainDiv">
+    <Toaster />
+    <div className="MainDiv">
       <h1>CRUD – Planety </h1>
       <PlanetForm onSave={addPlanet} editing={editing} notifyError={ notifyError }/>
       <PlanetList planets={planets} onEdit={editPlanet} onDelete={deletePlanet} />
     </div>
+    <ReactEmojis className="STAR" emoji="✨" emojiStyle='1' style={{height: 150, width: 150}}/>
+    <ReactEmojis className="ALIEN" emoji="🤖" emojiStyle='1' style={{height: 150, width: 150}}/>
+    <ReactEmojis className="ROCKET" emoji="🚀" emojiStyle='2' style={{height: 200, width: 200}}/>
+    <ReactEmojis className="ALIEN2" emoji="👽" emojiStyle='3' style={{height: 200, width: 200}}/>
     </>
     
   );
