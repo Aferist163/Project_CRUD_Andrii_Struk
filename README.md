@@ -24,4 +24,43 @@ Poniższa instrukcja pokaże, jak uruchomić projekt lokalnie, gdy masz dwie oso
  3) Zainstaluj zależności: npm install
  4) Uruchom serwer Node: npm run dev
 
+# Project structure
+<img width="294" height="593" alt="image" src="https://github.com/user-attachments/assets/e83e116d-364e-4a23-8c75-d5f13eb1852a" />
+
+
+# Opis endpointów
+## 1. GET /planets
+### Opis: 
+1. Pobiera wszystkie planety z bazy danych.
+### Błędy: 
+1. 500 – błąd serwera przy odczycie z bazy.
+
+## 2. POST /planets
+### Opis: 
+1. Pobiera wszystkie planety z bazy danych.
+### Walidacja:
+1. Wszystkie pola są wymagane.
+2. Populacja musi być liczbą.
+### Błędy: 
+1. 500 – błąd serwera przy odczycie z bazy.
+2. 400 – brakujące pola lub niepoprawna populacja.
+
+## 2. PUT /planets/:id
+### Opis: 
+1. Aktualizuje istniejącą planetę o podanym id.
+### Parametry URL: 
+1. id – ID planety do edycji.
+### Błędy: 
+1. 500 – błąd serwera przy odczycie z bazy.
+2. 404 – planeta o podanym ID nie istnieje.
+3. 400 – brakujące pola lub niepoprawna populacja.
+
+## 2. DELETE /planets/:id
+### Opis:
+1. Usuwa planetę o podanym id.
+### Parametry URL: 
+1. id – ID planety do usunięcia.
+### Błędy:
+1. 500 – błąd serwera przy odczycie z bazy.
+2. 404 – planeta o podanym ID nie istnieje.
 
