@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-
 export default function PlanetForm({ onSave, editing, notifyError}) {
   const [form, setForm] = useState({
     nazwa: "",
@@ -9,8 +8,6 @@ export default function PlanetForm({ onSave, editing, notifyError}) {
     populacja: "",
     typ_powierzchni: ""
   });
-
-   
 
   useEffect(() => {
     if (editing) setForm(editing);
@@ -35,8 +32,7 @@ export default function PlanetForm({ onSave, editing, notifyError}) {
       <input name="klimat" placeholder="Klimat" value={form.klimat} onChange={handleChange} />
       <input name="populacja" type="number" placeholder="Populacja" value={form.populacja} onChange={handleChange} />
       <input name="typ_powierzchni" placeholder="Typ powierzchni" value={form.typ_powierzchni} onChange={handleChange} />
-      <button className='sbmt' type="submit">{editing ? "Zapisz zmiany" : "Dodaj"}</button>
-       
+      <button className='sbmt' type="submit">{editing ? "Zapisz zmiany" : "Dodaj"}</button>      
     </form>
   );
 }

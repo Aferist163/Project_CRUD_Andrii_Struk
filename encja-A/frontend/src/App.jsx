@@ -3,12 +3,9 @@ import PlanetForm from "./components/PlanetForm";
 import PlanetList from "./components/PlanetList";
 import toast, { Toaster } from 'react-hot-toast';
 import ReactEmojis from "@souhaildev/reactemojis";
-
-
 import './css/App.css'
 
 function App() {
-
   const notifyError = () => toast.error("Wszystkie pola muszą być wypełnione!",
     {
       iconTheme: {
@@ -43,7 +40,6 @@ function App() {
   
   const [planets, setPlanets] = useState([]);
   const [editing, setEditing] = useState(null);
-  
   const editPlanet = (planet) => setEditing(planet);
 
   const fetchPlanets = async () => {
@@ -116,7 +112,6 @@ function App() {
     <ReactEmojis className="ROCKET" emoji="🚀" emojiStyle='2' style={{height: 200, width: 200}}/>
     <ReactEmojis className="ALIEN2" emoji="👽" emojiStyle='3' style={{height: 200, width: 200}}/>
     </>
-    
   );
 }
 

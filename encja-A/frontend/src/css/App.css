@@ -9,7 +9,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-image: url('../img/Bg.png');
-  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -35,7 +34,6 @@ form{
 }
 
 input{
-  
   padding: 15px 10px;
   width: 15%;
   border-radius: 15px;
@@ -74,7 +72,7 @@ table{
   width: 100%;
   background: rgb(24, 22, 24);
   border-color: antiquewhite;
-    z-index: 1;
+  z-index: 1;
 }
 
 tr, td, th{
