@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
-export default function PlanetForm({ onSave, editing }) {
+
+export default function PlanetForm({ onSave, editing, notifyError}) {
   const [form, setForm] = useState({
     nazwa: "",
     system_planet: "",
@@ -8,6 +9,8 @@ export default function PlanetForm({ onSave, editing }) {
     populacja: "",
     typ_powierzchni: ""
   });
+
+   
 
   useEffect(() => {
     if (editing) setForm(editing);
@@ -18,7 +21,7 @@ export default function PlanetForm({ onSave, editing }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.nazwa || !form.system_planet || !form.klimat || !form.populacja || !form.typ_powierzchni){
-      return alert("Wszystkie pola muszą być wypełnione!")
+      return  notifyError();
     } else {
       onSave(form);
       setForm({ nazwa: "", system_planet: "", klimat: "", populacja: "", typ_powierzchni: "" });
@@ -33,6 +36,7 @@ export default function PlanetForm({ onSave, editing }) {
       <input name="populacja" type="number" placeholder="Populacja" value={form.populacja} onChange={handleChange} />
       <input name="typ_powierzchni" placeholder="Typ powierzchni" value={form.typ_powierzchni} onChange={handleChange} />
       <button className='sbmt' type="submit">{editing ? "Zapisz zmiany" : "Dodaj"}</button>
+       
     </form>
   );
 }

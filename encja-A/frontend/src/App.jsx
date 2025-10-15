@@ -1,11 +1,48 @@
 import { useState, useEffect } from "react";
 import PlanetForm from "./components/PlanetForm";
 import PlanetList from "./components/PlanetList";
+import toast, { Toaster } from 'react-hot-toast';
+
+
 import './css/App.css'
 
 function App() {
+
+  const notifyError = () => toast.error("Wszystkie pola muszą być wypełnione!",
+    {
+      iconTheme: {
+        primary: '#6b0000ff',
+        secondary: '#fff',
+      },
+      
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+
+      position: 'top-left',
+  });
+
+  const notifySc = (text) => toast.success(text,
+    {
+      iconTheme: {
+        primary: '#006b00ff',
+        secondary: '#fff',
+      },
+      
+      style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+      },
+
+      position: 'top-left',
+  });
+  
   const [planets, setPlanets] = useState([]);
   const [editing, setEditing] = useState(null);
+  
   const editPlanet = (planet) => setEditing(planet);
 
   const fetchPlanets = async () => {
@@ -35,7 +72,7 @@ function App() {
         if (updated.updated) {
           fetchPlanets(); 
           setEditing(null);
-        }
+          notifySc("Zmiany zapisane w bazie danych")};
       } else {
     //===Add
         const res = await fetch("http://localhost:5000/planets", {
@@ -44,7 +81,9 @@ function App() {
           body: JSON.stringify(planet),
         });
         const newPlanet = await res.json();
-        if (newPlanet.id) fetchPlanets(); 
+        if (newPlanet.id) {
+          fetchPlanets(), 
+          notifySc("Dane zapisane w bazie danych")};
       }
     } catch (err) {
       console.error(err);
@@ -56,7 +95,7 @@ function App() {
     try {
       const res = await fetch(`http://localhost:5000/planets/${id}`, { method: "DELETE" });
       const result = await res.json();
-      if (result.deleted) fetchPlanets();
+      if (result.deleted) fetchPlanets(), notifySc("Dane usunięte");
       if (editing && editing.id === id) setEditing(null);
     } catch (err) {
       console.error(err);
@@ -64,11 +103,15 @@ function App() {
   };
   
   return (
-    <div className="MainDiv">
+    <>
+     <Toaster />
+     <div className="MainDiv">
       <h1>CRUD – Planety </h1>
-      <PlanetForm onSave={addPlanet} editing={editing} />
+      <PlanetForm onSave={addPlanet} editing={editing} notifyError={ notifyError }/>
       <PlanetList planets={planets} onEdit={editPlanet} onDelete={deletePlanet} />
     </div>
+    </>
+    
   );
 }
 
