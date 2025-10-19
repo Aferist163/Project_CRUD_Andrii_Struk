@@ -1,0 +1,105 @@
+#root {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: url('../img/Bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.MainDiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+  
+h1{
+  font-size: 96px;
+  z-index: 1;
+}
+
+form{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+input{
+  padding: 15px 10px;
+  width: 15%;
+  border-radius: 15px;
+  border-width: 3px;
+  font-size: 24px;
+  transition: all 0.2s ease;
+}
+
+button:hover, input:hover{
+  border-radius: 20px;
+  border-color: blueviolet;
+  transition: all 0.2s ease;
+}
+
+.Controlbtn{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button{
+  padding: 10px 30px;
+  border-radius: 15px;
+  width: 45%;
+  font-size: 24px;
+  background: rgb(65, 62, 65);
+  transition: all 0.2s ease;
+}
+
+.sbmt{
+  width: 14%;
+  background: rgb(24, 22, 24);
+}
+
+table{
+  opacity: 0.9;
+  width: 100%;
+  background: rgb(24, 22, 24);
+  border-color: antiquewhite;
+  z-index: 1;
+}
+
+tr, td, th{
+  border-width: 3px;
+}
+
+.STAR{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+.ALIEN{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
+
+.ROCKET{
+  position: absolute;
+  bottom: 5%;
+  right: 30%;
+  z-index: 0;
+}
+
+.ALIEN2{
+  position: absolute;
+  bottom: 50%;
+  right: 55%;
+}
