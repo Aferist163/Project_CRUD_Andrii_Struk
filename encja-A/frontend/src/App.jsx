@@ -6,6 +6,9 @@ import ReactEmojis from "@souhaildev/reactemojis";
 import './css/App.css'
 
 function App() {
+
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   const notifyError = () => toast.error("Wszystkie pola muszą być wypełnione!",
     {
       iconTheme: {
@@ -44,7 +47,7 @@ function App() {
 
   const fetchPlanets = async () => {
     try {
-      const res = await fetch("http://localhost:5000/planets");
+      const res = await fetch(`${API_URL}/planets`);
       const data = await res.json();
       setPlanets(data);
     } catch (err) {
@@ -60,7 +63,7 @@ function App() {
     try {
       if (editing) {
     //===Editing
-        const res = await fetch(`http://localhost:5000/planets/${editing.id}`, {
+        const res = await fetch(`${API_URL}/planets/${editing.id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(planet),
@@ -72,7 +75,7 @@ function App() {
           notifySc("Zmiany zapisane w bazie danych")};
       } else {
     //===Add
-        const res = await fetch("http://localhost:5000/planets", {
+        const res = await fetch(`${API_URL}/planets`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(planet),
@@ -90,7 +93,7 @@ function App() {
   const deletePlanet = async (id) => {
     if (!window.confirm("Czy na pewno chcesz usunąć planetę?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/planets/${id}`, { method: "DELETE" });
+      const res = await fetch(`${API_URL}/planets/${id}`, { method: "DELETE" });
       const result = await res.json();
       if (result.deleted) fetchPlanets(), notifySc("Dane usunięte");
       if (editing && editing.id === id) setEditing(null);
