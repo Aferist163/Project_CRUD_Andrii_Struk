@@ -1,8 +1,8 @@
-CREATE TABLE IF NOT EXISTS planets (
+CREATE TABLE IF NOT EXISTS weather (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  nazwa TEXT,
-  system_planet TEXT,
-  klimat TEXT,
-  populacja INTEGER,
-  typ_powierzchni TEXT
+  city TEXT,
+  data_recorded TEXT,
+  weather_description TEXT,
+  temperature INTEGER,
+  humidity TEXT
 );

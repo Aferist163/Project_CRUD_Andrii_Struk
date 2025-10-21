@@ -9,28 +9,28 @@ app.use(cors());
 app.use(express.json());
 
 //===GET===
-app.get("/planets", (req, res) => {
-  db.all("SELECT * FROM planets", [], (err, rows) => {
+app.get("/weather", (req, res) => {
+  db.all("SELECT * FROM weather", [], (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(rows);
   });
 });
 
 //===POST===
-app.post("/planets", (req, res) => {
-  const { nazwa, system_planet, klimat, populacja, typ_powierzchni } = req.body;
+app.post("/weather", (req, res) => {
+  const { city, data_recorded, weather_description, temperature, humidity } = req.body;
 
-  if (!nazwa || !system_planet || !klimat || !populacja || !typ_powierzchni) {
+  if (!city || !data_recorded || !weather_description || !temperature || !humidity) {
     return res.status(400).json({ error: "All fields are required" });
   }
-  if (isNaN(populacja)) {
-    return res.status(400).json({ error: "Populacja must be a number" });
+  if (isNaN(temperature)) {
+    return res.status(400).json({ error: "Temperature must be a number" });
   }
-  
+
   db.run(
-    `INSERT INTO planets (nazwa, system_planet, klimat, populacja, typ_powierzchni)
+    `INSERT INTO weather (city, data_recorded, weather_description, temperature, humidity)
      VALUES (?, ?, ?, ?, ?)`,
-    [nazwa, system_planet, klimat, populacja, typ_powierzchni],
+    [city, data_recorded, weather_description, temperature, humidity],
     function (err) {
       if (err) return res.status(500).json({ error: err.message });
       res.json({ id: this.lastID });
@@ -38,37 +38,37 @@ app.post("/planets", (req, res) => {
   );
 });
 
-//===Edit===
-app.put("/planets/:id", (req, res) => {
+//===PUT / Edit===
+app.put("/weather/:id", (req, res) => {
   const { id } = req.params;
-  const { nazwa, system_planet, klimat, populacja, typ_powierzchni } = req.body;
+  const { city, data_recorded, weather_description, temperature, humidity } = req.body;
 
-  if (!nazwa || !system_planet || !klimat || !populacja || !typ_powierzchni) {
+  if (!city || !data_recorded || !weather_description || !temperature || !humidity) {
     return res.status(400).json({ error: "All fields are required" });
   }
-  if (isNaN(populacja)) {
-    return res.status(400).json({ error: "Populacja must be a number" });
+  if (isNaN(temperature)) {
+    return res.status(400).json({ error: "Temperature must be a number" });
   }
 
   db.run(
-    `UPDATE planets
-     SET nazwa=?, system_planet=?, klimat=?, populacja=?, typ_powierzchni=?
+    `UPDATE weather
+     SET city=?, data_recorded=?, weather_description=?, temperature=?, humidity=?
      WHERE id=?`,
-    [nazwa, system_planet, klimat, populacja, typ_powierzchni, id],
+    [city, data_recorded, weather_description, temperature, humidity, id],
     function (err) {
       if (err) return res.status(500).json({ error: err.message });
-      if (this.changes === 0) return res.status(404).json({ error: "Planet not found" });
+      if (this.changes === 0) return res.status(404).json({ error: "Record not found" });
       res.json({ updated: this.changes });
     }
   );
 });
 
 //===DELETE===
-app.delete("/planets/:id", (req, res) => {
+app.delete("/weather/:id", (req, res) => {
   const { id } = req.params;
-  db.run(`DELETE FROM planets WHERE id=?`, id, function (err) {
+  db.run(`DELETE FROM weather WHERE id=?`, id, function (err) {
     if (err) return res.status(500).json({ error: err.message });
-    if (this.changes === 0) return res.status(404).json({ error: "Planet not found" });
+    if (this.changes === 0) return res.status(404).json({ error: "Record not found" });
     res.json({ deleted: this.changes });
   });
 });

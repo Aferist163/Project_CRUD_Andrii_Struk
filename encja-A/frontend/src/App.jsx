@@ -1,120 +1,94 @@
 import { useState, useEffect } from "react";
-import PlanetForm from "./components/PlanetForm";
-import PlanetList from "./components/PlanetList";
-import toast, { Toaster } from 'react-hot-toast';
-import ReactEmojis from "@souhaildev/reactemojis";
-import './css/App.css'
+import { Routes, Route } from "react-router-dom";
+import { notifyError, notifySuccess } from "./utils/toastNotifications";
+import { Toaster } from "react-hot-toast";
+import Edit from "./components/Edit";
+import Info from "./components/Info";
+import Inspect from "./components/Inspect";
+import Layout from "./components/Layout";
+import "./css/App.css";
 
 function App() {
-
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-
-  const notifyError = () => toast.error("Wszystkie pola muszą być wypełnione!",
-    {
-      iconTheme: {
-        primary: '#6b0000ff',
-        secondary: '#fff',
-      },
-      
-      style: {
-        borderRadius: '10px',
-        background: '#333',
-        color: '#fff',
-      },
-
-      position: 'top-left',
-  });
-
-  const notifySc = (text) => toast.success(text,
-    {
-      iconTheme: {
-        primary: '#006b00ff',
-        secondary: '#fff',
-      },
-      
-      style: {
-        borderRadius: '10px',
-        background: '#333',
-        color: '#fff',
-      },
-
-      position: 'top-left',
-  });
-  
-  const [planets, setPlanets] = useState([]);
+  const [weather, setWeather] = useState([]);
   const [editing, setEditing] = useState(null);
-  const editPlanet = (planet) => setEditing(planet);
+  const editWeather = (item) => setEditing(item);
 
-  const fetchPlanets = async () => {
+  const fetchWeather = async () => {
     try {
-      const res = await fetch(`${API_URL}/planets`);
+      const res = await fetch(`${API_URL}/weather`);
       const data = await res.json();
-      setPlanets(data);
+      setWeather(data);
     } catch (err) {
       console.error(err);
     }
   };
 
   useEffect(() => {
-    fetchPlanets();
+    fetchWeather();
   }, []);
 
-  const addPlanet = async (planet) => {
+  const addWeather = async (item) => {
     try {
       if (editing) {
-    //===Editing
-        const res = await fetch(`${API_URL}/planets/${editing.id}`, {
+        // === Editing
+        const res = await fetch(`${API_URL}/weather/${editing.id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(planet),
+          body: JSON.stringify(item),
         });
         const updated = await res.json();
         if (updated.updated) {
-          fetchPlanets(); 
+          fetchWeather();
           setEditing(null);
-          notifySc("Zmiany zapisane w bazie danych")};
+          notifySuccess("Changes saved to database");
+        }
       } else {
-    //===Add
-        const res = await fetch(`${API_URL}/planets`, {
+        // === Add
+        const res = await fetch(`${API_URL}/weather`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(planet),
+          body: JSON.stringify(item),
         });
-        const newPlanet = await res.json();
-        if (newPlanet.id) {
-          fetchPlanets(), 
-          notifySc("Dane zapisane w bazie danych")};
+        const newItem = await res.json();
+        if (newItem.id) {
+          fetchWeather();
+          notifySuccess("Data saved to database");
+        }
       }
     } catch (err) {
       console.error(err);
+      notifyError("An error occurred while saving data");
     }
   };
-  //===Delete
-  const deletePlanet = async (id) => {
-    if (!window.confirm("Czy na pewno chcesz usunąć planetę?")) return;
+
+  // === Delete
+  const deleteWeather = async (id) => {
+    if (!window.confirm("Are you sure you want to delete weather data?")) return;
     try {
-      const res = await fetch(`${API_URL}/planets/${id}`, { method: "DELETE" });
+      const res = await fetch(`${API_URL}/weather/${id}`, { method: "DELETE" });
       const result = await res.json();
-      if (result.deleted) fetchPlanets(), notifySc("Dane usunięte");
+      if (result.deleted) {
+        fetchWeather();
+        notifySuccess("Data deleted");
+      }
       if (editing && editing.id === id) setEditing(null);
     } catch (err) {
       console.error(err);
     }
   };
-  
+
   return (
-    <>
-    <Toaster />
-    <div className="MainDiv">
-      <h1>CRUD – Planety </h1>
-      <PlanetForm onSave={addPlanet} editing={editing} notifyError={ notifyError }/>
-      <PlanetList planets={planets} onEdit={editPlanet} onDelete={deletePlanet} />
+    <div className="App">
+      <Toaster/>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Info />} />
+          <Route path="edit" element={<Edit weather={weather} onSave={addWeather} editing={editing} onEdit={editWeather} notifyError={notifyError} onDelete={deleteWeather}/>}/>
+          <Route path="inspect" element={<Inspect weather={weather} />} />
+        </Route>
+      </Routes>
     </div>
-    <ReactEmojis className="STAR" emoji="✨" emojiStyle='1' style={{height: 150, width: 150}}/>
-    <ReactEmojis className="ALIEN" emoji="🤖" emojiStyle='1' style={{height: 150, width: 150}}/>
-    <ReactEmojis className="ROCKET" emoji="🚀" emojiStyle='2' style={{height: 200, width: 200}}/>
-    <ReactEmojis className="ALIEN2" emoji="👽" emojiStyle='3' style={{height: 200, width: 200}}/>
-    </>
   );
 }
 

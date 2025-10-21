@@ -1,105 +1,145 @@
-#root {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0;
-}
-
-body {
+.App {
+  width: calc(100% - 50px);
+  height: calc(100vh - 50px);
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background-image: url('../img/Bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.MainDiv{
+  background: linear-gradient(124deg, rgba(48, 118, 145, 1) 0%, rgba(58, 118, 156, 1) 26%, rgba(136, 189, 191, 1) 100%);
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-}
-  
-h1{
-  font-size: 96px;
-  z-index: 1;
+  overflow: hidden;
+  top: 25px;
+  left: 25px;
+  border-radius: 30px;
+  position: relative;
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.699), 0 8px 32px rgba(0, 0, 0, 0.753);
 }
 
-form{
-  margin-bottom: 20px;
+/* ---------------------------------Form */
+h1 {
+  font-size: 6vmax;
+  margin: 0 0 30px 0;
+  color: #d6c5e4;
+}
+
+form {
   display: flex;
-  justify-content: space-between;
-  z-index: 1;
-}
-
-input{
-  padding: 15px 10px;
-  width: 15%;
-  border-radius: 15px;
-  border-width: 3px;
-  font-size: 24px;
-  transition: all 0.2s ease;
-}
-
-button:hover, input:hover{
-  border-radius: 20px;
-  border-color: blueviolet;
-  transition: all 0.2s ease;
-}
-
-.Controlbtn{
-  display: flex;
-  justify-content: space-evenly;
-}
-
-button{
-  padding: 10px 30px;
-  border-radius: 15px;
-  width: 45%;
-  font-size: 24px;
-  background: rgb(65, 62, 65);
-  transition: all 0.2s ease;
-}
-
-.sbmt{
-  width: 14%;
-  background: rgb(24, 22, 24);
-}
-
-table{
-  opacity: 0.9;
+  margin-bottom: 30px;
   width: 100%;
-  background: rgb(24, 22, 24);
-  border-color: antiquewhite;
-  z-index: 1;
+  max-width: 100%;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
-tr, td, th{
-  border-width: 3px;
+input {
+  flex: 1 1 200px;
+  min-width: 0;
+  border: 0;
+  border-right: 1px solid;
+  outline: none;
+  font-size: 24px;
+  transition: all 0.2s ease;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #92b6be91;
 }
 
-.STAR{
-  position: absolute;
-  top: 10%;
-  left: 10%;
+input::placeholder {color: #dcdcff; opacity: 1;}
+input:not(:focus):hover {background-color: rgba(75, 43, 88, 0.212);}
+input:focus {background-color: rgba(75, 43, 88, 0.486);}
+
+.sbmt {
+  flex: 1 1 200px;
+  padding: 20px;
+  font-size: 24px;
+  border: none;
+  background: linear-gradient(127deg, rgba(133, 222, 200, 0.3) 33%, rgba(0, 212, 255, 1) 100%);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.ALIEN{
-  position: absolute;
-  top: 10%;
-  right: 10%;
+.sbmt:hover {
+  background-color: #53b30971;
 }
 
-.ROCKET{
-  position: absolute;
-  bottom: 5%;
-  right: 30%;
-  z-index: 0;
+/* ---------------------------------List */
+
+#NoData {
+  font-size: 3vmax;
+  color: #d6c5e4;
+  font-weight: 500;
 }
 
-.ALIEN2{
-  position: absolute;
-  bottom: 50%;
-  right: 55%;
+.listDiv {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border-radius: 40px;
+  border: 1px solid #ffffff69;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.005), rgba(255, 255, 255, 0.05)), radial-gradient(circle at top left, rgba(255, 255, 255, 0.15), transparent 60%), rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(var(--blur)) saturate(180%);
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex: 1;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ababff28;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+thead {
+  background-color: rgba(255, 223, 176, 0.295);
+}
+
+th,td {
+  padding: 12px 16px;
+  text-align: left;
+  border: 1px solid #ffffff27;
+  text-align: center;
+}
+
+th {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #b3b3ff49;
+}
+
+tbody tr:hover {
+  background-color: #56567aa8;
+  transition: background-color 0.3s ease;
+}
+
+.Controlbtn {
+  text-align: center;
+}
+
+.Controlbtn button {
+  display: inline-block;
+  width: calc(50% - 10px);
+  margin: 0 5px;
+  padding: 6px 0;
+  font-size: 24px;
+  border: 1px solid #ffffff27;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.Controlbtn button:first-child {background-color: #00ff083d; color: white; border: 1px solid #ffffff27;}
+.Controlbtn button:first-child:hover {background-color: #00dd0bb4;}
+.Controlbtn button:last-child {background-color: #ff11006b; color: white;}
+.Controlbtn button:last-child:hover {background-color: #d31919;}
