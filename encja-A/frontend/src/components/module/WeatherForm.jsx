@@ -30,11 +30,11 @@ export default function WeatherForm({ onSave, editing, notifyError }) {
     <>
       <h1>CRUD - Weather</h1>
       <form onSubmit={handleSubmit} className="blur">
-        <input name="city" placeholder="City" value={form.city} onChange={handleChange} />
-        <input name="data_recorded" type="date" placeholder="Data recorded" value={form.data_recorded} onChange={handleChange} />
-        <input name="weather_description" placeholder="Weather description" value={form.weather_description} onChange={handleChange} />
-        <input name="temperature" type="number" placeholder="Temperature" value={form.temperature} onChange={handleChange} />
-        <input name="humidity" placeholder="Humidity" value={form.humidity} onChange={handleChange} />
+        <input className="mainInput" name="city" placeholder="City" value={form.city} onChange={handleChange} />
+        <input className="mainInput" name="data_recorded" type="date" placeholder="Data recorded" value={form.data_recorded} onChange={handleChange} />
+        <input className="mainInput" name="weather_description" placeholder="Weather description" value={form.weather_description} onChange={handleChange} />
+        <input className="mainInput" name="temperature" type="number" placeholder="Temperature" value={form.temperature} onChange={handleChange} />
+        <input className="mainInput" name="humidity" placeholder="Humidity" value={form.humidity} onChange={handleChange} />
         <button className="sbmt" type="submit">
           {editing ? "Save changes" : "Add"}
         </button>

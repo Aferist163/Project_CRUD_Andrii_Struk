@@ -44,5 +44,27 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto;
+}
+
+.Account{
+  margin-left: auto;
+  height: 50px; 
+  font-size: 24px;
+  color: var(--textMain);
+  background: var(--blackAcent); 
+  border-radius: 100px; 
+  font-weight: 500;
+  display: flex;
+  align-items: center;   
+  justify-content: center;
+  padding: 0 0 0 10px;
+  border: 1px solid var(--whiteAcent);
+}
+
+.Avatar{
+  height: 35px; 
+  width: 35px;
+  margin: 10px;
+  background: var(--Avatar);
 }

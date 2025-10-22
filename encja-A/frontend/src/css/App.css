@@ -30,7 +30,7 @@ form {
   overflow: hidden;
 }
 
-input {
+.mainInput{
   flex: 1 1 200px;
   min-width: 0;
   border: 0;
@@ -43,16 +43,16 @@ input {
   background: transparent;
 }
 
-input::placeholder {
+.mainInput::placeholder{
   color: var(--textSecond);
   opacity: 1;
 }
 
-input:not(:focus):hover {
+.mainInput:not(:focus):hover{
   background-color: var(--whiteAcent);
 }
 
-input:focus {
+.mainInput:focus{
   background-color: var(--blackHover);
 }
 

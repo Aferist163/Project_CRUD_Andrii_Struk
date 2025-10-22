@@ -1,5 +1,13 @@
 export default function WeatherList({ weather, onEdit, onDelete }) {
-  if (!weather.length) return <p id="NoData" style={{ fontSize: '1vmax' }}>No weather data available</p>;
+    if (!weather.length) {
+    return (
+      <>
+        <div className="listDiv blur">
+          <p id="NoData" style={{ fontSize: '1vmax' }}>No weather data available</p>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>

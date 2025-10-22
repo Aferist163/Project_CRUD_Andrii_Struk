@@ -10,6 +10,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --background: url(../assets/img/sun4.jpg);
+  --Avatar: url(../assets/img/anonim.svg);
   --blackAcent: rgba(0, 0, 0, 0.2);
   --blackHover: rgba(0, 0, 0, 0.4);
   --whiteAcent: rgba(255, 255, 255, 0.15);

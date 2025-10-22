@@ -6,8 +6,10 @@ import Edit from "./components/Edit";
 import Info from "./components/Info";
 import Inspect from "./components/Inspect";
 import Layout from "./components/Layout";
+import Login from "./components/Login";
 import "./css/App.css";
-import "./css/cards.css"
+import "./css/cards.css";
+import "./css/login.css";
 
 function App() {
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
@@ -81,12 +83,13 @@ function App() {
 
   return (
     <div className="App">
-      <Toaster/>
+      <Toaster />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Info />} />
-          <Route path="edit" element={<Edit weather={weather} onSave={addWeather} editing={editing} onEdit={editWeather} notifyError={notifyError} onDelete={deleteWeather}/>}/>
+          <Route path="edit" element={<Edit weather={weather} onSave={addWeather} editing={editing} onEdit={editWeather} notifyError={notifyError} onDelete={deleteWeather} />} />
           <Route path="inspect" element={<Inspect weather={weather} />} />
+          <Route path="login" element={<Login/>} />
         </Route>
       </Routes>
     </div>

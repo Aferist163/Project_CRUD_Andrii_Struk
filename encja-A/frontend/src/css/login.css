@@ -1,0 +1,100 @@
+.loginCard {
+    min-width: 600px;
+    max-width: 600px;
+    border-radius: 40px;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.h1Login {
+    font-size: 84px;
+    margin: 0;
+    filter: drop-shadow(0px 0px 10px var(--blackHover));
+    align-self: center;
+}
+
+.Lableinput {
+    margin-left: 20px;
+    margin-top: 25px;
+    font-size: 16px;
+}
+
+.InputLogin {
+    height: 70px;
+    width: 100%;
+    border: 1px solid var(--whiteAcent);
+    border-radius: 40px;
+    outline: none;
+    font-size: 24px;
+    transition: all 0.2s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    background: var(--blackAcent);
+}
+
+.InputLogin::placeholder {
+    color: var(--textSecond);
+    opacity: 0.2;
+}
+
+.InputLogin:not(:focus):hover {
+    background-color: var(--whiteAcent);
+}
+
+.InputLogin:focus {
+    background-color: var(--blackHover);
+}
+
+.LoginRegiseterBtn {
+    height: 40px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    background: transparent;
+    cursor: pointer;
+}
+
+.LoginBtn {
+    height: 70px;
+    width: 100%;
+    border: 1px solid var(--whiteAcent);
+    border-radius: 40px;
+    outline: none;
+    font-size: 24px;
+    transition: all 0.2s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    background: var(--blackHover);
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.LoginBtn:hover {
+    background-color: var(--whiteAcent);
+}
+
+.emojiCard {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+}
+
+.MainDiv_login {
+    width: 100%;
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    border: none;
+    border-radius: 40px;
+}

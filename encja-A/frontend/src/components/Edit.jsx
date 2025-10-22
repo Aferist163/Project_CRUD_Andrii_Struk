@@ -1,5 +1,5 @@
-import WeatherForm from "../module/WeatherForm";
-import WeatherList from "../module/WeatherList";
+import WeatherForm from "./module/WeatherForm";
+import WeatherList from "./module/WeatherList";
 
 export default function Edit({ weather, onSave, editing, onEdit, notifyError, onDelete }) {
   return (

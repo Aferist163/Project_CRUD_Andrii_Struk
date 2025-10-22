@@ -1,5 +1,13 @@
 export default function Inspect({ weather }) {
-  if (!weather.length) return <p id="NoData">No weather data available</p>;
+  if (!weather.length) {
+    return (
+      <>
+        <div className="listDiv blur">
+          <p id="NoData">No weather data available</p>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
