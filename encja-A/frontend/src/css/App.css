@@ -1,23 +1,22 @@
 .App {
-  width: calc(100% - 50px);
-  height: calc(100vh - 50px);
+  width: 100%;
+  height: 100vh;
   margin: 0;
-  background: linear-gradient(124deg, rgba(48, 118, 145, 1) 0%, rgba(58, 118, 156, 1) 26%, rgba(136, 189, 191, 1) 100%);
+  background: var(--background);
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  top: 25px;
-  left: 25px;
-  border-radius: 30px;
   position: relative;
-  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.699), 0 8px 32px rgba(0, 0, 0, 0.753);
+  color: var(--textMain);
 }
 
 /* ---------------------------------Form */
 h1 {
   font-size: 6vmax;
   margin: 0 0 30px 0;
-  color: #d6c5e4;
+  filter: drop-shadow(0px 0px 10px var(--blackHover));
 }
 
 form {
@@ -29,47 +28,54 @@ form {
   box-sizing: border-box;
   border-radius: 40px;
   overflow: hidden;
-  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 input {
   flex: 1 1 200px;
   min-width: 0;
   border: 0;
-  border-right: 1px solid;
+  border-right: 1px solid var(--whiteAcent);
   outline: none;
   font-size: 24px;
   transition: all 0.2s ease;
   padding: 20px;
   box-sizing: border-box;
-  background-color: #92b6be91;
+  background: transparent;
 }
 
-input::placeholder {color: #dcdcff; opacity: 1;}
-input:not(:focus):hover {background-color: rgba(75, 43, 88, 0.212);}
-input:focus {background-color: rgba(75, 43, 88, 0.486);}
+input::placeholder {
+  color: var(--textSecond);
+  opacity: 1;
+}
+
+input:not(:focus):hover {
+  background-color: var(--whiteAcent);
+}
+
+input:focus {
+  background-color: var(--blackHover);
+}
 
 .sbmt {
   flex: 1 1 200px;
   padding: 20px;
   font-size: 24px;
   border: none;
-  background: linear-gradient(127deg, rgba(133, 222, 200, 0.3) 33%, rgba(0, 212, 255, 1) 100%);
-  color: white;
+  background: var(--blackAcent);
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .sbmt:hover {
-  background-color: #53b30971;
+   background-color: var(--blackHover);
 }
 
 /* ---------------------------------List */
 
 #NoData {
   font-size: 3vmax;
-  color: #d6c5e4;
   font-weight: 500;
+  filter: drop-shadow(0px 0px 10px var(--blackHover));
 }
 
 .listDiv {
@@ -78,31 +84,26 @@ input:focus {background-color: rgba(75, 43, 88, 0.486);}
   overflow-y: auto;
   box-sizing: border-box;
   border-radius: 40px;
-  border: 1px solid #ffffff69;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.005), rgba(255, 255, 255, 0.05)), radial-gradient(circle at top left, rgba(255, 255, 255, 0.15), transparent 60%), rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(var(--blur)) saturate(180%);
-  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.15);
   flex: 1;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #ababff28;
-  color: #ffffff;
   font-family: sans-serif;
   font-size: 18px;
+  border: none;
 }
 
 thead {
-  background-color: rgba(255, 223, 176, 0.295);
+  background-color: var(--blackHover);
 }
 
-th,td {
+th,
+td {
   padding: 12px 16px;
   text-align: left;
-  border: 1px solid #ffffff27;
+  border: 1px solid var(--whiteAcent);
   text-align: center;
 }
 
@@ -113,12 +114,17 @@ th {
   text-align: center;
 }
 
+tr:first-child th {border-top: none;}
+tr:last-child td {border-bottom: none;}
+th:first-child, td:first-child {border-left: none;}
+th:last-child, td:last-child { border-right: none;}
+
 tbody tr:nth-child(even) {
-  background-color: #b3b3ff49;
+  background-color: var(--blackAcent);
 }
 
 tbody tr:hover {
-  background-color: #56567aa8;
+  background-color: var(--whiteAcent);
   transition: background-color 0.3s ease;
 }
 
@@ -132,14 +138,26 @@ tbody tr:hover {
   margin: 0 5px;
   padding: 6px 0;
   font-size: 24px;
-  border: 1px solid #ffffff27;
-  border-radius: 15px;
+  border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
   box-sizing: border-box;
 }
 
-.Controlbtn button:first-child {background-color: #00ff083d; color: white; border: 1px solid #ffffff27;}
-.Controlbtn button:first-child:hover {background-color: #00dd0bb4;}
-.Controlbtn button:last-child {background-color: #ff11006b; color: white;}
-.Controlbtn button:last-child:hover {background-color: #d31919;}
+.Controlbtn button:first-child {
+  background-color: var(--greenDark);
+  border-radius: 100px 30px 30px 100px;
+}
+
+.Controlbtn button:first-child:hover {
+  background-color: var(--greenHover);
+}
+
+.Controlbtn button:last-child {
+  background-color: var(--redDark);
+  border-radius: 30px 100px 100px 30px;
+}
+
+.Controlbtn button:last-child:hover {
+  background-color: var(--red);
+}

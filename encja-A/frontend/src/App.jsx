@@ -7,6 +7,7 @@ import Info from "./components/Info";
 import Inspect from "./components/Inspect";
 import Layout from "./components/Layout";
 import "./css/App.css";
+import "./css/cards.css"
 
 function App() {
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";

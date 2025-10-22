@@ -3,7 +3,7 @@ export default function Inspect({ weather }) {
 
   return (
     <>
-      <div className="listDiv">
+      <div className="listDiv blur">
         <table border="1" cellPadding="8">
           <thead>
             <tr>

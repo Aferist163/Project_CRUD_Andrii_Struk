@@ -9,15 +9,40 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --blur: 100px;
-  ::-webkit-scrollbar { display: none; }
+  --background: url(../assets/img/sun4.jpg);
+  --blackAcent: rgba(0, 0, 0, 0.2);
+  --blackHover: rgba(0, 0, 0, 0.4);
+  --whiteAcent: rgba(255, 255, 255, 0.15);
+  --textMain: rgb(255, 255, 255);
+  --textSecond: #e2e8f0;
+  --green: #a5fca9;
+  --greenDark: rgba(0, 143, 12, 0.521);
+  --greenHover: rgba(0, 201, 17, 0.521);;
+  --red: rgba(255, 0, 0, 0.603);
+  --redDark: rgba(136, 0, 0, 0.603);
+  --yellow: #e7d192;
+  --yellowDark: rgba(153, 143, 0, 0.699);
+  --blue: #93c5fd;
+  --blueDark: rgba(0, 61, 160, 0.63);
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  ;
+}
+
+.blur {
+  backdrop-filter: blur(50px) saturate(200%);
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--whiteAcent);
 }
 
 body {
   width: 100%;
   height: 100vh;
   position: fixed;
-  overflow: hidden; 
+  overflow: hidden;
   isolation: isolate;
   margin: 0;
 }

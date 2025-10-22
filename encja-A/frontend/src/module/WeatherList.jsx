@@ -3,7 +3,7 @@ export default function WeatherList({ weather, onEdit, onDelete }) {
 
   return (
     <>
-      <div className="listDiv">
+      <div className="listDiv blur">
         <table border="1" cellPadding="8">
           <thead>
             <tr>

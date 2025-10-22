@@ -3,19 +3,20 @@ import { toast } from 'react-hot-toast';
 export const notifyError = (text) => {
   toast.error(text, {
     iconTheme: {
-      primary: '#ff7b71ff',
-      secondary: '#fff',
+      primary: 'rgba(133, 0, 0, 1)',
+      secondary: '#ffffffff',
     },
     style: {
       borderRadius: '100px',
-      background: 'linear-gradient(124deg,rgba(48, 118, 145, 0.7) 0%, rgba(58, 118, 156, 0.7) 26%, rgba(136, 189, 191, 0.7) 100%)',
+      background: 'transparent',
+      backdropFilter: 'blur(50px) saturate(200%)',
       color: '#fff',
       fontSize: '24px',
-      marginRight: '10px',
+      marginRight: '84px',
       maxWidth: '500px',
-      paddingTop: '10px',
-      paddingBottom: '10px',
-      marginTop: '10px'
+      paddingTop: '16px',
+      paddingBottom: '16px',
+      marginTop: '14px'
     },
     position: 'top-right',
   });
@@ -24,18 +25,20 @@ export const notifyError = (text) => {
 export const notifySuccess = (text) => {
   toast.success(text, {
     iconTheme: {
-      primary: '#c6ff90ff',
-      secondary: '#5c5c5cff',
+      primary: '#4c9c00ff',
+      secondary: '#ffffffff',
     },
     style: {
       borderRadius: '100px',
-      background: 'linear-gradient(124deg,rgba(48, 118, 145, 0.7) 0%, rgba(58, 118, 156, 0.7) 26%, rgba(136, 189, 191, 0.7) 100%)',
+      background: 'transparent',
+      backdropFilter: 'blur(50px) saturate(200%)',
       color: '#fff',
       fontSize: '24px',
-      marginRight: '10px',
-      paddingTop: '10px',
-      paddingBottom: '10px',
-      marginTop: '10px'
+      marginRight: '84px',
+      maxWidth: '500px',
+      paddingTop: '16px',
+      paddingBottom: '16px',
+      marginTop: '14px'
     },
     position: 'top-right',
   });

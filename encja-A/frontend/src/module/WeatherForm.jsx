@@ -22,19 +22,19 @@ export default function WeatherForm({ onSave, editing, notifyError }) {
       return notifyError("Make sure all fields are completed!");
     } else {
       onSave(form);
-      setForm({city: "", data_recorded: "", weather_description: "", temperature: "", humidity: ""});
+      setForm({ city: "", data_recorded: "", weather_description: "", temperature: "", humidity: "" });
     }
   };
 
   return (
     <>
       <h1>CRUD - Weather</h1>
-      <form onSubmit={handleSubmit}>
-        <input name="city" placeholder="City" value={form.city} onChange={handleChange}/>
-        <input name="data_recorded" type="date" placeholder="Data recorded" value={form.data_recorded} onChange={handleChange}/>
-        <input name="weather_description" placeholder="Weather description" value={form.weather_description} onChange={handleChange}/>
-        <input name="temperature" type="number" placeholder="Temperature" value={form.temperature} onChange={handleChange}/>
-        <input name="humidity" placeholder="Humidity" value={form.humidity} onChange={handleChange}/>
+      <form onSubmit={handleSubmit} className="blur">
+        <input name="city" placeholder="City" value={form.city} onChange={handleChange} />
+        <input name="data_recorded" type="date" placeholder="Data recorded" value={form.data_recorded} onChange={handleChange} />
+        <input name="weather_description" placeholder="Weather description" value={form.weather_description} onChange={handleChange} />
+        <input name="temperature" type="number" placeholder="Temperature" value={form.temperature} onChange={handleChange} />
+        <input name="humidity" placeholder="Humidity" value={form.humidity} onChange={handleChange} />
         <button className="sbmt" type="submit">
           {editing ? "Save changes" : "Add"}
         </button>

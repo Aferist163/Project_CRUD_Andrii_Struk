@@ -4,10 +4,10 @@ import "../css/Layout.css";
 export default function Layout() {
   return (
     <>
-      <nav className="header-nav">
-        <NavLink to="/" className="nav-link">Home</NavLink>
-        <NavLink to="/edit" className="nav-link">Edit</NavLink>
-        <NavLink to="/inspect" className="nav-link">Inspect</NavLink>
+      <nav className="header-nav blur">
+        <NavLink to="/" className="nav-link blur">Home</NavLink>
+        <NavLink to="/edit" className="nav-link blur">Edit</NavLink>
+        <NavLink to="/inspect" className="nav-link blur">Inspect</NavLink>
       </nav>
       <main className="main-content">
         <Outlet />
