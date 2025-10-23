@@ -1,5 +1,10 @@
+import lock from "../../assets/img/lock.svg"
+
 export default function WeatherList({ weather, onEdit, onDelete }) {
-    if (!weather.length) {
+  const token = localStorage.getItem("token");
+  const isLoggedIn = !!token;
+
+  if (!weather.length) {
     return (
       <>
         <div className="listDiv blur">
@@ -32,8 +37,18 @@ export default function WeatherList({ weather, onEdit, onDelete }) {
                 <td>{w.temperature}</td>
                 <td>{w.humidity}</td>
                 <td className="Controlbtn">
-                  <button onClick={() => onEdit(w)}>🖊 Edit</button>
-                  <button onClick={() => onDelete(w.id)}>🗑 Delete</button>
+                  <button onClick={() => onEdit(w)}>
+                    {!isLoggedIn && (<div className="locked">
+                      <img src={lock} alt="lock" />
+                    </div>)}
+                    🖊 Edit
+                  </button>
+                  <button onClick={() => onDelete(w.id)}>
+                    {!isLoggedIn && (<div className="locked">
+                      <img src={lock} alt="lock" />
+                    </div>)}
+                    🗑 Delete
+                  </button>
                 </td>
               </tr>
             ))}

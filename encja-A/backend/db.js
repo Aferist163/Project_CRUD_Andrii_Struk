@@ -7,6 +7,10 @@ const db = new sqlite3.Database("./database/weather.db", (err) => {
 });
 
 const initSQL = fs.readFileSync("./database/migration.sql", "utf8");
-db.exec(initSQL);
+
+db.exec(initSQL, (err) => {
+  if (err) console.error("❌ Migration error:", err.message);
+  else console.log("✅ Tables created successfully (if not exist)");
+});
 
 module.exports = db;

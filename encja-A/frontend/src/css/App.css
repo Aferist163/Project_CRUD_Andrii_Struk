@@ -64,6 +64,7 @@ form {
   background: var(--blackAcent);
   cursor: pointer;
   transition: background-color 0.2s ease;
+  position: relative;
 }
 
 .sbmt:hover {
@@ -159,6 +160,8 @@ tbody tr:hover {
   transition: background-color 0.2s ease;
   box-sizing: border-box;
   border: 1px solid var(--whiteAcent);
+  position: relative;
+  overflow: hidden;
 }
 
 .Controlbtn button:first-child {
@@ -192,15 +195,15 @@ tbody tr:hover {
 
 @media (max-width: 500px) {
   .sbmt {
-  flex: 1 1 150px;
-  font-size: 3vmin;
-  padding: 2vmin;
+    flex: 1 1 150px;
+    font-size: 3vmin;
+    padding: 2vmin;
 
-}
+  }
 
   .mainInput {
-  flex: 1 1 150px;
-  font-size: 3vmin;
-  padding: 2vmin 7vmin;
-}
+    flex: 1 1 150px;
+    font-size: 3vmin;
+    padding: 2vmin 7vmin;
+  }
 }

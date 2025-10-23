@@ -58,9 +58,6 @@
 .Account {
   height: 50px;
   margin-left: auto;
-  flex: 1 1 200px;
-  min-width: 200px;
-  max-width: 200px;
   font-size: 24px;
   font-weight: 500;
   color: var(--textMain);
@@ -73,14 +70,13 @@
 }
 
 .Account p {
-  margin: auto;
+  margin: 10px;
 }
 
 .Avatar {
   height: 35px;
   width: 35px;
   margin: 10px 10px 10px 0;
-  background: var(--Avatar);
 }
 
 @media (max-width: 1260px) {
@@ -100,5 +96,12 @@
 
   .Account {
     max-width: none;
+    flex: 1;
+ 
   }
+
+  .Account p {
+     margin: auto;
+}
+
 }

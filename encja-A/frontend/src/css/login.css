@@ -27,13 +27,21 @@
     align-items: flex-start;
     flex-direction: column;
     padding: 30px;
+    overflow: hidden;
 }
 
 .h1Login {
     font-size: 84px;
+    line-height: 100px;
     margin: 0;
     filter: drop-shadow(0px 0px 10px var(--blackHover));
     align-self: center;
+}
+
+.role{
+    font-size: 24px;
+    align-self: center;
+    margin: 0;
 }
 
 .Lableinput {
@@ -94,6 +102,25 @@
     background: var(--blackHover);
     margin-top: 25px;
     cursor: pointer;
+}
+
+.redbtn {
+    background-color: var(--red);
+    height: 70px;
+    width: 100%;
+    border: 1px solid var(--whiteAcent);
+    border-radius: 40px;
+    outline: none;
+    font-size: 24px;
+    transition: all 0.2s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.redbtn:hover {
+    background-color: var(--redDark);
 }
 
 .LoginBtn:hover {
