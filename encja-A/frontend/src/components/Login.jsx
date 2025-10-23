@@ -12,9 +12,7 @@ export default function Login() {
   return (
     <>
       <div className="MainDiv_login blur">
-        <div className="emojiCard">
-          <Player autoplay loop src={loginAnimation} style={{ height: '520px', width: '520px', marginTop: '100px' }} />
-        </div>
+        
         <div className="loginCard blur">
           <h1 className='h1Login'>{isLogin ? "Login" : "Register"}</h1>
 
@@ -39,6 +37,9 @@ export default function Login() {
             {isLogin ? "Don’t have an account? Sign up" : "Already have an account? Log in"}
           </button>
 
+        </div>
+        <div className="emojiCard">
+          <Player autoplay loop src={loginAnimation} className="login_anim"/>
         </div>
       </div>
     </>

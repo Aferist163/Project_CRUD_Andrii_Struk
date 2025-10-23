@@ -30,7 +30,7 @@ form {
   overflow: hidden;
 }
 
-.mainInput{
+.mainInput {
   flex: 1 1 200px;
   min-width: 0;
   border: 0;
@@ -43,16 +43,16 @@ form {
   background: transparent;
 }
 
-.mainInput::placeholder{
+.mainInput::placeholder {
   color: var(--textSecond);
   opacity: 1;
 }
 
-.mainInput:not(:focus):hover{
+.mainInput:not(:focus):hover {
   background-color: var(--whiteAcent);
 }
 
-.mainInput:focus{
+.mainInput:focus {
   background-color: var(--blackHover);
 }
 
@@ -67,7 +67,7 @@ form {
 }
 
 .sbmt:hover {
-   background-color: var(--blackHover);
+  background-color: var(--blackHover);
 }
 
 /* ---------------------------------List */
@@ -91,7 +91,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-family: sans-serif;
-  font-size: 18px;
+  font-size: 2vmin;
   border: none;
 }
 
@@ -101,7 +101,7 @@ thead {
 
 th,
 td {
-  padding: 12px 16px;
+  padding: 2vmin 2vmin;
   text-align: left;
   border: 1px solid var(--whiteAcent);
   text-align: center;
@@ -114,10 +114,23 @@ th {
   text-align: center;
 }
 
-tr:first-child th {border-top: none;}
-tr:last-child td {border-bottom: none;}
-th:first-child, td:first-child {border-left: none;}
-th:last-child, td:last-child { border-right: none;}
+tr:first-child th {
+  border-top: none;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+th:first-child,
+td:first-child {
+  border-left: none;
+}
+
+th:last-child,
+td:last-child {
+  border-right: none;
+}
 
 tbody tr:nth-child(even) {
   background-color: var(--blackAcent);
@@ -129,24 +142,28 @@ tbody tr:hover {
 }
 
 .Controlbtn {
-  text-align: center;
+  padding: 0;
+  border: none;
+  display: flex;
+  height: 5.5vmin;
+  padding: 1vmin;
+  gap: 1vmin;
 }
 
 .Controlbtn button {
-  display: inline-block;
-  width: calc(50% - 10px);
-  margin: 0 5px;
-  padding: 6px 0;
-  font-size: 24px;
+  width: 50%;
+  font-size: 2vmin;
+  padding: 1vmin;
   border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
   box-sizing: border-box;
+  border: 1px solid var(--whiteAcent);
 }
 
 .Controlbtn button:first-child {
   background-color: var(--greenDark);
-  border-radius: 100px 30px 30px 100px;
+  border-radius: 40px;
 }
 
 .Controlbtn button:first-child:hover {
@@ -155,9 +172,20 @@ tbody tr:hover {
 
 .Controlbtn button:last-child {
   background-color: var(--redDark);
-  border-radius: 30px 100px 100px 30px;
+  border-radius: 40px;
 }
 
 .Controlbtn button:last-child:hover {
   background-color: var(--red);
+}
+
+
+@media (max-width: 1500px) {
+  .Controlbtn button {
+    font-size: 1.2vmin;
+  }
+
+  .Edirtborder {
+    font-size: 1.5vmin;
+  }
 }
