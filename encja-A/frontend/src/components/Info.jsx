@@ -45,7 +45,7 @@ export default function Info() {
 
         <div className="card user blur">
           <div className="role-icon">
-            <Player autoplay loop src={userAnimation} style={{ height: '500px', width: '500px', marginRight: '45px'}}/>
+            <Player autoplay loop src={userAnimation} style={{ height: '400px', width: '400px', marginRight: '35px'}}/>
           </div>
           <h2 className="role">User</h2>
           <p className="role-subtitle">Registered</p>

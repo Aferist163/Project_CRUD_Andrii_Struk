@@ -1,6 +1,6 @@
 .header-nav {
   min-height: 70px;
-  min-width: 220px;
+  min-width: 320px;
   flex-shrink: 0;
   width: calc(100% - 200px);
   margin-top: 30px;

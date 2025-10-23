@@ -14,7 +14,7 @@
   padding: 30px 30px;
   transition: all 0.3s ease;
   flex: 1;
-  min-width: 420px;
+  min-width: 320px;
   box-sizing: border-box;
 }
 
@@ -71,6 +71,7 @@
 .permission-item {
   display: flex;
   align-items: flex-start;
+  text-align: start;
   gap: 12px;
   padding: 10px;
   margin-bottom: 8px;
