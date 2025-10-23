@@ -129,7 +129,7 @@ function App() {
           <Route index element={<Info />} />
           <Route path="edit" element={<Edit weather={weather} onSave={addWeather} editing={editing} onEdit={handleEdit} notifyError={notifyError} onDelete={deleteWeather} />} />
           <Route path="inspect" element={<Inspect weather={weather} />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login API_URL={API_URL}/>} />
         </Route>
       </Routes>
     </div>

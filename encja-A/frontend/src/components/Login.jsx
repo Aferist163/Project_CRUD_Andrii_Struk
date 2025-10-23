@@ -3,7 +3,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import loginAnimation from '../assets/lottie/login.json';
 import { useOutletContext } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ API_URL }) {
   const { setUsername } = useOutletContext();
   const [isLogin, setIsLogin] = useState(true);
   const [username, setLocalUsername] = useState("");
@@ -37,7 +37,7 @@ export default function Login() {
       return;
     }
 
-    const url = isLogin ? "http://localhost:5000/login" : "http://localhost:5000/register";
+    const url = isLogin ? `${API_URL}/login` : `${API_URL}/register`;
 
     try {
       const res = await fetch(url, {
